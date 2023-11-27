@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="progress"></div>
+    <div class="box" id="box1"></div>
+    <button id="btn">PLAY</button>
+    <script src="https://cdn.jsdelivr.net/npm/@mojs/core"></script>
+    <script type="module">
+      const btn = document.getElementById('btn')
+
+      // 向右移动 250px, 时间：1000 毫秒
+      const box1 = new mojs.Html({
+        el: '#box1',
+        x: { 0: 250 },
+        duration: 1000,
+        easing: 'cubic.in',
+        onProgress(p, isForward, isYoyo) {
+          console.log('进度：', p)
+        },
+        onStart(isForward, isYoyo) {
+          console.log('onStart')
+        },
+        onComplete(isForward, isYoyo) {
+          console.log('动画结束')
+        }
+      })
+
+      btn.addEventListener('click', () => {
+        box1.play()
+      })
+    </script>
+  </body>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: blueviolet;
+      margin-bottom: 10px;
+    }
+  </style>
+</html>

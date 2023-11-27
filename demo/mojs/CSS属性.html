@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="box" id="box"></div>
+    <div class="box" id="box2"></div>
+    <button id="play">PLAY</button>
+    <script src="https://cdn.jsdelivr.net/npm/@mojs/core"></script>
+    <script type="module">
+      // 动画 1
+      const box = new mojs.Html({
+        el: '#box',
+        borderStyle: 'solid',
+        borderColor: {'cyan': '#FA3204'},
+        borderWidth: { 2: 12 },
+        duration: 2000
+      })
+      const box2 = new mojs.Html({
+        el: '#box2',
+        x: {0: 300},
+        backgroundColor: '#AFA1A2',
+        borderRadius: {'0%':'50%'},
+        easing: 'ease.in',
+        duration: 1000,
+      })
+      // 操作
+      const play = document.getElementById('play')
+      play.addEventListener('click', () => {
+        box.play()
+        box2.play()
+      })
+    </script>
+  </body>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .box {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 10px;
+      background-color: blueviolet;
+    }
+  </style>
+</html>

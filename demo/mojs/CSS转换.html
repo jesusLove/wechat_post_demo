@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="box" id="box"></div>
+    <div class="box" id="box2"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@mojs/core"></script>
+    <script type="module">
+      // 动画 1
+      const box = new mojs.Html({
+        el: '#box',
+        x: {0: 250},
+        backgroundColor: '#AFA1A2',
+        borderRadius: {'0%':'50%'},
+        easing: 'ease.in',
+        duration: 1000,
+      })
+
+      const box2 = new mojs.Html({
+        el: '#box2',
+        x: {0: 250},  // 向右移动 250
+        scale: {1: 2}, // 缩放 2 倍
+        rotateZ: {0: 360}, // 旋转
+        duration: 1000  // 动画时间
+      })
+
+      // 操作
+      document.body.addEventListener('click', () => {
+        box.play()
+        box2.play()
+      })
+    </script>
+  </body>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: antiquewhite;
+    }
+    .box {
+      width: 20px;
+      height: 20px;
+      margin-bottom: 10px;
+      margin: 20px;
+      background-color: blueviolet;
+    }
+  </style>
+</html>
