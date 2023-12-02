@@ -1,14 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
   <body>
     <div class="box" id="box1"></div>
     <div class="box" id="box2"></div>
-    <button id="btn">PLAY</button>
     <script src="https://cdn.jsdelivr.net/npm/@mojs/core"></script>
     <script type="module">
       const btn = document.getElementById('btn')
@@ -25,8 +19,7 @@
         el: '#box2',
         x: { 0: 250, duration: 1000, easing: 'cubic.in' },
       })
-      btn.addEventListener('click', () => {
-        console.log('click')
+      window.addEventListener('click', () => {
         box1.play()
         box2.play()
       })

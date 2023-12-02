@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MeidumZoom 入门</title>
+  </head>
+  <body>
+    <div class="box-wrapper">
+      <image class="image" src="./images/demo.jpg" data-zoomable />
+      <span
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo magnam
+        ullam molestiae nihil sequi aliquam autem quo aperiam tempore quos
+        dolore incidunt ipsam, at atque! Deleniti architecto odit neque
+        distinctio?</span
+      >
+    </div>
+    <div class="box-wrapper">
+      <image class="image" src="./images/demo.jpg" data-zoomable />
+      <span
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo magnam
+        ullam molestiae nihil sequi aliquam autem quo aperiam tempore quos
+        dolore incidunt ipsam, at atque! Deleniti architecto odit neque
+        distinctio?</span
+      >
+    </div>
+    <div class="box-wrapper">
+      <image class="image" src="./images/demo.jpg" data-zoomable />
+      <span
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo magnam
+        ullam molestiae nihil sequi aliquam autem quo aperiam tempore quos
+        dolore incidunt ipsam, at atque! Deleniti architecto odit neque
+        distinctio?</span
+      >
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        mediumZoom('[data-zoomable]')
+      })
+    </script>
+  </body>
+  <style>
+    body {
+      overflow: auto;
+      height: 100vh;
+    }
+    .box-wrapper {
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 600px;
+    }
+    .image {
+      width: 600px;
+      height: 400px;
+    }
+  </style>
+</html>
