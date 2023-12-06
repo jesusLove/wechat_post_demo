@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swiper Cube 效果</title>
+  </head>
+  <body>
+    <div class="swiper cube-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+      </div>
+    </div>
+    <div class="swiper cards-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+      </div>
+    </div>
+    <div class="swiper coverflow-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+      </div>
+    </div>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      new Swiper('.cube-swiper', {
+        // 可选参数
+        loop: true,
+        autoplay: {
+          delay: 3000
+        },
+        effect: 'cube',
+      })
+      new Swiper('.cards-swiper', {
+        // 可选参数
+        loop: true,
+        autoplay: {
+          delay: 3500
+        },
+        effect: 'cards',
+      })
+      new Swiper('.coverflow-swiper', {
+        // 可选参数
+        loop: true,
+        autoplay: {
+          delay: 4000
+        },
+        effect: 'coverflow',
+      })
+    </script>
+  </body>
+  <style>
+    .swiper {
+      width: 600px;
+      height: 300px;
+      margin-bottom: 30px;
+    }
+    .swiper-slide {
+      border-radius: 10px;
+      text-align: center;
+      color: white;
+      background-color: aquamarine;
+      background: url(./images/demo.jpg) no-repeat;
+      background-size: cover;
+    }
+    .creative-swiper .swiper-slide {
+      width: 50%;
+    }
+  </style>
+</html>
