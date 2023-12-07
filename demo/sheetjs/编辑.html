@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SheetJS 编辑</title>
+  </head>
+  <body>
+    <script
+      lang="javascript"
+      src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"
+    ></script>
+    <script>
+      const ws = XLSX.utils.aoa_to_sheet([
+        ['A1', 'B1', 'C1'],
+        ['A2', 'B2', 'C2'],
+        ['A3', 'B3', 'C3'],
+      ])
+
+      // 合并单元格
+      XLSX.utils.merge_cells(ws, 'A1:C1')
+
+      // 插入一行
+      XLSX.utils.sheet_add_aoa(ws, [['D1', 'E1', 'F1']], { origin: 'A2' })
+
+      // 删除一列
+      XLSX.utils.delete_cols(ws, 2)
+
+      // 输出操作后的工作表
+      console.log(ws)
+
+    </script>
+  </body>
+</html>

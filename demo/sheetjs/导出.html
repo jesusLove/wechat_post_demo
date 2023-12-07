@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sheetjs 导出</title>
+  </head>
+  <body>
+    <button id="btn">导出</button>
+    <script
+      lang="javascript"
+      src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"
+    ></script>
+    <script>
+      const btn = document.getElementById('btn')
+      btn.addEventListener('click', () => {
+        const data = [
+          ['姓名', '年龄', '城市'],
+          ['张三', 25, '上海'],
+          ['李四', 30, '北京'],
+        ]
+
+        // 将二维数组转换为工作表对象
+        const ws = XLSX.utils.aoa_to_sheet(data)
+
+        // 创建一个新的工作簿对象
+        const wb = XLSX.utils.book_new()
+
+        // 将工作表对象添加到工作簿中，'Sheet1'为工作表的名称
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1')
+
+        // 将工作簿数据写入文件，'exported_data.xlsx'为导出文件的名称
+        XLSX.writeFile(wb, 'export.xlsx')
+      })
+    </script>
+  </body>
+</html>
