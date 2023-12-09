@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="rellax lg-green"></div>
+    <div class="rellax lg-blue" data-rellax-speed="7"></div>
+    <div class="rellax sm-green" data-rellax-speed="-4"></div>
+    <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
+    <script>
+      var rellax = new Rellax('.rellax')
+    </script>
+  </body>
+
+  <style>
+    /* 省略 */
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: flex-start;
+      height: 200vh;
+      background-color: antiquewhite;
+    }
+    .rellax {
+      margin-top: 50vh;
+    }
+    .lg-green {
+      width: 160px;
+      height: 160px;
+      background: #00f1c9;
+      border-radius: 12px;
+      margin-left: 10px;
+    }
+    .sm-green {
+      width: 60px;
+      height: 60px;
+      background: #00f1c9;
+      border-radius: 12px;
+      margin-left: 10px;
+    }
+    .lg-blue {
+      width: 160px;
+      height: 160px;
+      background: #5000F1;
+      border-radius: 12px;
+      margin-left: 1%;
+    }
+    .sm-blue {
+      width: 60px;
+      height: 60px;
+      background: #5000F1;
+      border-radius: 12px;
+      margin-left: 10px;
+    }
+  </style>
+</html>
