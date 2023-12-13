@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ScrollMagic 示例</title>
+    <!-- 引入 ScrollMagic 库 -->
+    <script src="https://unpkg.com/scrollmagic@2.0.8/scrollmagic/minified/ScrollMagic.min.js"></script>
+    <!-- 样式 -->
+    <style>
+      body {
+        height: 200vh; /* 让页面足够长，以便滚动 */
+        margin: 0;
+        padding: 0;
+      }
+      #animate {
+        width: 100px;
+        height: 100px;
+        background-color: #3498db;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="animate"></div>
+
+    <!-- JavaScript 代码 -->
+    <script>
+      // 初始化 ScrollMagic 控制器
+      var controller = new ScrollMagic.Controller()
+
+      // 创建场景
+      var scene = new ScrollMagic.Scene({
+        triggerElement: '#animate', // 触发滚动的元素
+        duration: 300, // 持续时间（像素）
+      })
+        .on('progress', function (event) {
+          // 获取滚动进度（0到1之间）
+          var progress = event.progress
+
+          // 计算透明度和缩放值
+          var opacity = 1 - progress
+          var scale = 1 - 0.5 * progress
+
+          // 应用动画效果
+          document.getElementById('animate').style.opacity = opacity
+          document.getElementById('animate').style.transform =
+            'scale(' + scale + ')'
+        })
+        .addIndicators() // 可选：添加调试指示器
+        .addTo(controller) // 将场景添加到控制器
+    </script>
+  </body>
+</html>

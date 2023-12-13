@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curtains.js 入门</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <canvas id="myCanvas" width="800" height="800"></canvas>
+    </div>
+    <script src="./lib/curtains.umd.js"></script>
+    <script type="module">
+      window.addEventListener('load', () => {
+        const curtains = new Curtains({
+          container: document.getElementById('myCanvas'), // 画布的ID
+        })
+        // 添加 3D 元素
+        const plane = new Plane(curtains, {
+          widthSegments: 10,
+          heightSegments: 10,
+        })
+
+        // 添加交互
+        plane.onHover(() => {
+          plane.setScale(1.2) // 鼠标悬停时放大平面
+        })
+
+        plane.onLeave(() => {
+          plane.setScale(1.0) // 鼠标离开时恢复原始大小
+        })
+      })
+    </script>
+  </body>
+  <style>
+    .wrapper {
+      width: 800px;
+      height: 800px;
+    }
+  </style>
+</html>

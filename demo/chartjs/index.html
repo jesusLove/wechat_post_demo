@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chartjs 入门</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <canvas id="myChart" width="400px" height="400px"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      var ctx = document.getElementById('myChart').getContext('2d')
+      var myChart = new Chart(ctx, {
+        type: 'bar', // 指定图表类型
+        data: {
+          labels: ['数据1', '数据2', '数据3'],
+          datasets: [
+            {
+              label: '我的图表',
+              data: [10, 20, 30],
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          // 配置选项
+        },
+      })
+    </script>
+  </body>
+  <style>
+    .wrapper {
+      width: 400px;
+      height: 400px;
+    }
+  </style>
+</html>
