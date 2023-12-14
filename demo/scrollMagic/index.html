@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ScrollMagic 入门</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="trigger" class="trigger">
+        <div id="animate" class="animate"></div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/scrollmagic@2.0.8/scrollmagic/minified/ScrollMagic.min.js"></script>
+
+    <script>
+      // 初始化 ScrollMagic 控制器
+      var controller = new ScrollMagic.Controller()
+
+      // 创建场景
+      var scene = new ScrollMagic.Scene({
+        triggerElement: '#trigger', // 触发滚动的元素
+        duration: 300, // 持续时间（像素）
+      })
+        .setTween('#animate', {
+          // 设置动画的元素
+          opacity: 0,
+          scale: 0.5,
+        })
+        .addIndicators() // 可选：添加调试指示器
+        .addTo(controller) // 将场景添加到控制器
+    </script>
+  </body>
+</html>
