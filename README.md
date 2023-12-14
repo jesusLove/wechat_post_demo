@@ -1,5 +1,7 @@
 # 历史文章
 
+- [Rellax.js，一款超酷的 JavaScript 滚动效果库](https://mp.weixin.qq.com/s/D-soMxW4D3mUsFJ0bki7Jw)
+- [Chart.js ，一款强大且轻量的 JavaScript 图表库？](https://mp.weixin.qq.com/s/x_dPRwiyjO6E1H0xCIyk_A)
 - [Swiper，一款超赞的 JavaScript 滑动库？](https://mp.weixin.qq.com/s/OdzNKtM-ZJoNB7dX69RtbA)
 - [Vanta.js，让你的网页焕发 3D 魔力的 JavaScript 库](https://mp.weixin.qq.com/s/DUuLmYuqyjT9lqTRRKFHaQ)
 - [Lodash.js，一款超赞的 JavaScript 实用工具库？](https://mp.weixin.qq.com/s/Sk8GTtSPLwOcS70pb5d9pQ)

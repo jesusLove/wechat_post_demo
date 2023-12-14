@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+    />
+    <title>AOS 示例</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        background-color: antiquewhite;
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+        height: 150vh; /* 使页面有足够高度，以便可以滚动触发动画 */
+      }
+
+      .aos-demo {
+        padding: 50px;
+        text-align: center;
+      }
+
+      .aos-demo .box {
+        width: 400px;
+        height: 200px;
+        margin-bottom: 10px;
+        background-color: rebeccapurple;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="aos-demo">
+      <div class="box" data-aos="fade-up" data-aos-duration="800"></div>
+      <div
+        class="box"
+        data-aos="fade-left"
+        data-aos-delay="300"
+        data-aos-duration="600"
+      ></div>
+
+      <div
+        class="box"
+        data-aos="flip-up"
+        data-aos-delay="200"
+        data-aos-duration="1000"
+      ></div>
+      <div
+        class="box"
+        data-aos="flip-up"
+        data-aos-delay="200"
+        data-aos-duration="1000"
+      ></div>
+      <div
+        class="box"
+        data-aos="flip-up"
+        data-aos-delay="200"
+        data-aos-duration="1000"
+      ></div>
+      <div
+        class="box"
+        data-aos="flip-up"
+        data-aos-delay="200"
+        data-aos-duration="1000"
+      ></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init()
+    </script>
+  </body>
+</html>
