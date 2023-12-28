@@ -13,7 +13,11 @@ new Zdog.Ellipse({
 })
 
 function animate() {
+  // 旋转 illo 的每一帧
+  illo.rotate.y += 0.03
   illo.updateRenderGraph()
+  // 下一帧动画
   requestAnimationFrame(animate)
 }
+// 开始动画
 animate()

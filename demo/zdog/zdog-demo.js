@@ -17,17 +17,17 @@ new Zdog.Ellipse({
 })
 
 
-// square
-new Zdog.Rect({
-  addTo: illo,
-  width: 80,
-  height: 80,
-  // position further back
-  translate: { z: -40 },
-  stroke: 12,
-  color: '#E62',
-  fill: true,
-});
+// // square
+// new Zdog.Rect({
+//   addTo: illo,
+//   width: 80,
+//   height: 80,
+//   // position further back
+//   translate: { z: -40 },
+//   stroke: 12,
+//   color: '#E62',
+//   fill: true,
+// });
 
 
 function animate() {
