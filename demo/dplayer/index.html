@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DPlayer DEMO</title>
+  </head>
+  <style>
+    .dplayer {
+      width: 923px;
+      height: 526px;
+    }
+  </style>
+  <body>
+    <div id="dplayer" class="dplayer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/dplayer@1.27.1/dist/DPlayer.min.js"></script>
+    <script>
+      const dp = new DPlayer({
+        container: document.getElementById('dplayer'),
+        screenshot: true, // 开启截屏
+        video: {
+          url: './source/480P.mp4',
+          pic: './picture/cover_img.jpg', // 封面
+          type: 'auto', // 类型
+        },
+      })
+    </script>
+  </body>
+</html>
