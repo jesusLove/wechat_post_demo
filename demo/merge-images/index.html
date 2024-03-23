@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Merge Images</title>
+  <style>
+    .box {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .box span {
+      padding: 0 10px;
+      font-weight: bold;
+      font-size: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <img src="./images/body.png"/>
+    <span>+</span>
+    <img src="./images/eyes.png"/>
+    <span>+</span> 
+    <img src="./images/mouth.png"/> 
+    <span>=</span>
+    <img id="img"></img>
+  </div>
+  <div class="box">
+    <img id="img2">
+    <img id="img3" style="margin-left: 20px;">
+  </div>
+</body>
+<script src="./index.js" type="module"></script>
+</html>
