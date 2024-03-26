@@ -1,5 +1,6 @@
 # 历史文章
 
+- [blurify.js - 一款小巧的图片高斯模糊 JavaScript 库？](https://mp.weixin.qq.com/s/G4Z-CjRIWXZUt1sX2H-kFA)
 - [merge-images - 一款轻松实现图像合并的 JavaScript 库 ？](https://mp.weixin.qq.com/s/QAm0cM2EvamliQvotWqBew)
 - [VueUse - 一把锋利的瑞士军刀，让你的开发速度提升 3 倍的秘密。](https://mp.weixin.qq.com/s/yTxFodb2iFpTb6gXxEtxvw)
 - [Tippy.js - 一款轻量级、功能丰富的 JavaScript 提示和弹出库？](https://mp.weixin.qq.com/s/qzQSK2YlvNolKB7XWhyJ-A)
