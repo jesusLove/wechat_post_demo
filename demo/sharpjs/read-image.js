@@ -10,4 +10,4 @@ async function readMetadata(imagePath) {
 }
 
 readMetadata('./images/image.png')
-readMetadata('./output/image_compressed.jpg')
+// readMetadata('./output/image_compressed.jpg')
