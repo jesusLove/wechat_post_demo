@@ -1,5 +1,6 @@
 # 历史文章
-
+- [Compressor.js，一款基于浏览器的 JavaScript 图片压缩器，简单易用和高度可配置？](https://mp.weixin.qq.com/s/NHNq6ifyI-TjQIebdvUNEg)
+- [Cropper.js 一款基于 JavaScript 的开源图片裁剪神器，支持图片裁剪、缩放、旋转。](https://mp.weixin.qq.com/s/v6ZBc9hi4DdvaJhn4A3qmA)
 - [blurify.js - 一款小巧的图片高斯模糊 JavaScript 库？](https://mp.weixin.qq.com/s/G4Z-CjRIWXZUt1sX2H-kFA)
 - [merge-images - 一款轻松实现图像合并的 JavaScript 库 ？](https://mp.weixin.qq.com/s/QAm0cM2EvamliQvotWqBew)
 - [VueUse - 一把锋利的瑞士军刀，让你的开发速度提升 3 倍的秘密。](https://mp.weixin.qq.com/s/yTxFodb2iFpTb6gXxEtxvw)
