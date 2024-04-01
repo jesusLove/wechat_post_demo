@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GranimJS DEMO</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="container">
+    <p class="title">基本渐变动画</p>
+    <canvas class="canvas" id="canvas-basic" ></canvas>
+    <p class="title">复杂的渐变动画</p>
+    <canvas class="canvas" id="canvas-complex" ></canvas>
+    <p class="title">图像和混合模式的渐变动画</p>
+    <canvas class="canvas" id="canvas-image-blending" ></canvas>
+    <p class="title">交互式渐变</p>
+    <canvas class="canvas" id="canvas-interactive" ></canvas>
+    <div class="actions">
+      <button id="default">Default State</button>
+      <button id="violet">Violet State</button>
+      <button id="orange">Orange State</button>
+    </div>
+  </div>
+  <script src="./libs/granim.js"></script>
+  <script type="module" src="./src/basic.js"></script>
+  <script type="module" src="./src/complex.js"></script>
+  <script type="module" src="./src/imageBlending.js"></script>
+  <script type="module" src="./src/interactive.js"></script>
+</body>
+</html>

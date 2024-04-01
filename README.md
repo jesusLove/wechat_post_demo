@@ -1,3 +1,6 @@
+
+![](./images/wechat.jpg)
+> 更多内容请关注公众号 “猿镇”
 # 历史文章
 - [AniJS - 一款超简单的、超实用的 JavaScript 动画库？不用写 JS、只需一行命令即可实现动画。](https://mp.weixin.qq.com/s/Ib4YRyAxcDZ8z3o2FAZ1UA)
 - [Compressor.js，一款基于浏览器的 JavaScript 图片压缩器，简单易用和高度可配置？](https://mp.weixin.qq.com/s/NHNq6ifyI-TjQIebdvUNEg)

@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+}
+.container {
+  padding: 0 20px;
+  padding-bottom: 20px;
+}
+.title {
+  font-size: 20px;
+  font-weight: bold;
+}
+.canvas {
+  width: 100%;
+  height: 300px;
+  /* border: 1px solid goldenrod; */
+  margin-bottom: 10px;
+}
