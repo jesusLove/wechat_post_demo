@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RoughNotation demo</title>
+    
+    <style>
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      main {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 0 16px;
+        box-sizing: border-box;
+        position: relative;
+      }
+      
+      h1 {
+        display: inline-block;
+      }
+    </style>
+  </head>  
+  <body id="box">
+    <main>
+      <h1>
+        Basic RoughNotation Demo
+      </h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan nisi hendrerit augue molestie tempus.
+        <em>Phasellus</em> purus quam, aliquet nec commodo quis, pharetra ut orci. Donec laoreet ligula nisl, placerat
+        molestie
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan nisi hendrerit augue molestie tempus.
+        <strong>Phasellus</strong> purus quam, aliquet nec commodo quis, pharetra ut orci. Donec laoreet ligula nisl,
+        placerat molestie
+        mauris luctus id. Fusce dapibus non libero nec lobortis. Nullam iaculis nisl ac eros consequat, sit amet placerat
+        massa vulputate. <span>Maecenas euismod volutpat ultrices. Pellentesque felis ex, ullamcorper in felis finibus, feugiat
+        dignissim augue. Integer malesuada non eros consectetur interdum. Mauris mollis non urna in porta.</span>
+      </p>
+      <p id="block">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan nisi hendrerit augue molestie tempus.
+        Phasellus purus quam, aliquet nec commodo quis, pharetra ut orci. Donec laoreet ligula nisl, placerat
+        molestie
+        mauris luctus id. Fusce dapibus non libero nec lobortis. Nullam iaculis nisl ac eros consequat, sit amet placerat
+        massa vulputate. Maecenas euismod volutpat ultrices. Pellentesque felis ex, ullamcorper in felis finibus, feugiat
+        dignissim augue. Integer malesuada non eros consectetur interdum. Mauris mollis non urna in porta.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan nisi hendrerit augue molestie tempus.
+      </p>
+    </main>
+    
+    <script type="module">
+      import { annotate } from 'https://unpkg.com/rough-notation?module';
+      
+      const n1 = document.querySelector('em');
+      const n2 = document.querySelector('strong');
+      const n3 = document.querySelector('h1');
+      const n4 = document.querySelector('span');
+      const n5 = document.querySelector('#block');
+      
+      const a1 = annotate(n1, { type: 'underline', color: 'blue' });
+      const a2 = annotate(n2, { type: 'circle', color: 'red', padding: 10 });
+      const a3 = annotate(n3, { type: 'box', color: 'orange' });
+      const a4 = annotate(n4, { type: 'highlight', color: 'yellow', iterations: 1, multiline: true });
+      const a5 = annotate(n5, { type: 'bracket', color: 'red', padding: [2, 10], brackets: ['left', 'right'], strokeWidth: 3 })
+      
+      document.getElementById('box').addEventListener('click',() => {
+        hide()
+        show()
+      })
+
+      function show() {
+        a1.show();
+        a2.show();
+        a3.show();
+        a4.show();
+        a5.show();
+      }
+      function hide() {
+        a1.hide();
+        a2.hide();
+        a3.hide();
+        a4.hide();
+        a5.hide();
+      }
+      show()
+      
+
+      
+    </script>
+  </body>
+</html>
