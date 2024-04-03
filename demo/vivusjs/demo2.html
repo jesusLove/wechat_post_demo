@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vivus.js DMEO</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+      }
+      .box {
+        padding: 20px;
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box" id="replay">
+        <svg
+          id="obturateur1"
+          xmlns="http://www.w3.org/2000/svg"
+          x="0px"
+          y="0px"
+          width="200px"
+          height="200px"
+          viewBox="0 0 200 200"
+          enable-background="new 0 0 200 200"
+        >
+          <g
+            stroke="#f60"
+            fill="none"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="100" cy="100" r="90" />
+            <circle cx="100" cy="100" r="85.74" />
+            <circle cx="100" cy="100" r="72.947" />
+            <circle cx="100" cy="100" r="39.74" />
+            <line x1="34.042" y1="131.189" x2="67.047" y2="77.781" />
+            <line x1="31.306" y1="75.416" x2="92.41" y2="60.987" />
+            <line x1="68.81" y1="34.042" x2="122.219" y2="67.046" />
+            <line x1="124.584" y1="31.305" x2="139.013" y2="92.409" />
+            <line x1="165.957" y1="68.809" x2="132.953" y2="122.219" />
+            <line x1="168.693" y1="124.584" x2="107.59" y2="139.012" />
+            <line x1="131.19" y1="165.957" x2="77.781" y2="132.953" />
+            <line x1="75.417" y1="168.693" x2="60.987" y2="107.59" />
+          </g>
+        </svg>
+        <svg
+          id="obturateur2"
+          xmlns="http://www.w3.org/2000/svg"
+          x="0px"
+          y="0px"
+          width="200px"
+          height="200px"
+          viewBox="0 0 200 200"
+          enable-background="new 0 0 200 200"
+        >
+          <g
+            stroke="#f60"
+            fill="none"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="100" cy="100" r="90" />
+            <circle cx="100" cy="100" r="85.74" />
+            <circle cx="100" cy="100" r="72.947" />
+            <circle cx="100" cy="100" r="39.74" />
+            <line x1="34.042" y1="131.189" x2="67.047" y2="77.781" />
+            <line x1="31.306" y1="75.416" x2="92.41" y2="60.987" />
+            <line x1="68.81" y1="34.042" x2="122.219" y2="67.046" />
+            <line x1="124.584" y1="31.305" x2="139.013" y2="92.409" />
+            <line x1="165.957" y1="68.809" x2="132.953" y2="122.219" />
+            <line x1="168.693" y1="124.584" x2="107.59" y2="139.012" />
+            <line x1="131.19" y1="165.957" x2="77.781" y2="132.953" />
+            <line x1="75.417" y1="168.693" x2="60.987" y2="107.59" />
+          </g>
+        </svg>
+        <svg
+          id="obturateur3"
+          xmlns="http://www.w3.org/2000/svg"
+          x="0px"
+          y="0px"
+          width="200px"
+          height="200px"
+          viewBox="0 0 200 200"
+          enable-background="new 0 0 200 200"
+        >
+          <g
+            stroke="#f60"
+            fill="none"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="100" cy="100" r="90" />
+            <circle cx="100" cy="100" r="85.74" />
+            <circle cx="100" cy="100" r="72.947" />
+            <circle cx="100" cy="100" r="39.74" />
+            <line x1="34.042" y1="131.189" x2="67.047" y2="77.781" />
+            <line x1="31.306" y1="75.416" x2="92.41" y2="60.987" />
+            <line x1="68.81" y1="34.042" x2="122.219" y2="67.046" />
+            <line x1="124.584" y1="31.305" x2="139.013" y2="92.409" />
+            <line x1="165.957" y1="68.809" x2="132.953" y2="122.219" />
+            <line x1="168.693" y1="124.584" x2="107.59" y2="139.012" />
+            <line x1="131.19" y1="165.957" x2="77.781" y2="132.953" />
+            <line x1="75.417" y1="168.693" x2="60.987" y2="107.59" />
+          </g>
+        </svg>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vivus@0.4.6/dist/vivus.min.js"></script>
+    <script>
+      // 不同的 type
+      const vivusInstance1 = new Vivus('obturateur1', { duration: 100, type: 'delayed' }, () => {
+        console.log('动画完成')
+      })
+      const vivusInstance2 = new Vivus('obturateur2', { duration: 100, type: 'sync' }, () => {
+        console.log('动画完成')
+      })
+      const vivusInstance3 = new Vivus('obturateur3', { duration: 100, type: 'oneByOne' }, () => {
+        console.log('动画完成')
+      })
+
+      document.getElementById('replay').addEventListener('click', () => {
+        vivusInstance1.stop().reset().play(1)
+        vivusInstance2.stop().reset().play(1)
+        vivusInstance3.stop().reset().play(1)
+      })
+
+
+
+    </script>
+  </body>
+</html>
