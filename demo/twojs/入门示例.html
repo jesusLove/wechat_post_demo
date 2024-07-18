@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Two.js 入门示例</title>
+    <script src="./libs/two.js"></script>
+  </head>
+  <body>
+    <script>
+      // 创建 Two.js 实例
+      var two = new Two({
+        width: window.innerWidth,
+        height: window.innerHeight,
+        autostart: true,
+      }).play()
+      // 创建一个矩形
+      var rect = two.makeRectangle(300, 200, 150, 150)
+      // 设置矩形样式
+      rect.fill = '#FF8000' // 设置填充颜色
+      rect.stroke = '#1C75BC' // 设置边框颜色
+      rect.linewidth = 7 // 设置边框宽度
+      // 创建一个动画效果，让矩形旋转
+      two.bind('update', function (frameCount) {
+        rect.rotation += 0.05 // 每次更新增加旋转角度
+      })
+      // 渲染到页面上
+      two.appendTo(document.body)
+    </script>
+  </body>
+</html>

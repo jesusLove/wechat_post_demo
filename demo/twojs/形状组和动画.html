@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Two.js 形状组和动画</title>
+    <script src="./libs/two.js"></script>
+  </head>
+  <body>
+    <script>
+      // 创建Two.js实例，使用上面定义的参数，并将其添加到body元素中
+      var two = new Two({
+        fullscreen: true,
+      }).appendTo(document.body)
+
+      // 使用Two.js创建一个圆形，位置在(-70, 0)，半径为50
+      var circle = two.makeCircle(-70, 0, 50)
+
+      // 使用Two.js创建一个矩形，位置在(70, 0)，宽为100，高为100
+      var rect = two.makeRectangle(70, 0, 100, 100)
+
+      // 设置圆形
+      circle.fill = '#FF8000' // 填充颜色为橙色
+      circle.stroke = 'orangered' // 边框颜色为橙红色
+
+      // 设置矩形
+      rect.fill = 'rgba(0, 200, 255, 0.75)' // 填充颜色为半透明的蓝色
+      rect.stroke = '#1C75BC' // 边框颜色为深蓝色
+
+      // 创建一个组合，包含上面创建的圆形和矩形
+      // 组合可以包含形状数组和/或其他组合
+      var group = two.makeGroup(circle, rect)
+      // 位置为画布的中心
+      group.position.set(two.width / 2, two.height / 2)
+      group.scale = 0
+      group.noStroke()
+      // 将一个函数绑定到动画循环中，用于缩放和旋转组合对象。
+      two.bind('update', (frameCount) => {
+        // 每次调用two.update()时，都会执行此代码。
+        // frameCount是自动画开始以来经过的帧数。
+        if (group.scale > 0.9999) {
+          // 当组合对象的缩放比例大于0.9999时，重置缩放和旋转为0。
+          // 这里使用0.9999来避免由于浮点数精度问题导致的缩放无法达到1。
+          group.scale = group.rotation = 0
+        }
+        // 计算缩放变化量t，基于当前缩放值的函数。
+        var t = (1 - group.scale) * 0.04
+        // 更新组合对象的缩放比例，使其逐渐增加到1。
+        group.scale += t
+        // 更新组合对象的旋转角度，使其随着缩放的增加而旋转。
+        group.rotation += t * 4 * Math.PI
+      })
+      // 最后，启动动画循环
+      two.play()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>实现一个时钟</title>
+    <script src="./libs/two.js"></script>
+  </head>
+  <body>
+    <script>
+      // 创建Two.js实例，指定类型为SVG，全屏显示，自动开始渲染
+      const two = new Two({
+        type: Two.Types.svg,
+        fullscreen: true,
+        autostart: true,
+      }).appendTo(document.body)
+
+      // 设置渲染器的背景颜色
+      two.renderer.domElement.style.background = '#efefef'
+
+      // 定义一个常量TWO_PI，表示圆周率的两倍
+      const TWO_PI = Math.PI * 2
+
+      // 定义拖动动画的平滑系数
+      const drag = 0.125
+
+      // 定义时钟的半径，取窗口宽度和高度的较小值的三分之一
+      const radius = Math.min(two.width, two.height) * 0.33
+
+      // 定义时钟数字的样式
+      const styles = {
+        size: radius * 0.33, // 字体大小
+        weight: 'bold', // 字体粗细
+        family:
+          '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"', // 字体系列
+        fill: 'black', // 字体颜色
+        opacity: 0.33, // 字体透明度
+      }
+
+      // 创建一个圆形，用来作为时钟的刻度背景
+      const ticks = two.makeCircle(0, 0, radius)
+      ticks.noFill() // 圆形没有填充颜色
+      ticks.dashes = [1, (TWO_PI * radius) / 60 - 1] // 设置圆形的虚线样式
+      ticks.linewidth = 50 // 设置线宽
+      ticks.stroke = 'rgba(0, 0, 0, 0.33)' // 设置线的颜色
+
+      // 循环创建12个数字，表示时钟的小时数
+      for (let i = 0; i < 12; i++) {
+        // 计算数字的位置
+        const x = radius * Math.sin((i / 12) * TWO_PI)
+        const y = -radius * Math.cos((i / 12) * TWO_PI)
+        // 创建文本对象并设置样式
+        const number = new Two.Text(i === 0 ? 12 : i, x, y, styles)
+
+        // 设置文本对象的位置
+        number.position.set(x, y)
+        // 将文本对象添加到Two.js场景中
+        two.add(number)
+      }
+
+      // 创建时钟的时针、分针和秒针
+      const hands = {
+        hour: new Two.Line(0, 0, 0, -radius * 0.66), // 时针
+        minute: new Two.Line(0, 0, 0, -radius * 0.8), // 分针
+        second: new Two.Line(0, 0, 0, -radius * 0.9), // 秒针
+      }
+
+      // 设置时针的样式
+      hands.hour.noFill() // 时针没有填充颜色
+      hands.hour.stroke = 'white' // 时针的颜色
+      hands.hour.linewidth = 20 // 时针的线宽
+      hands.hour.cap = 'round' // 时针的端点样式
+
+      // 设置分针的样式
+      hands.minute.noFill() // 分针没有填充颜色
+      hands.minute.stroke = 'rgb(255, 50, 50)' // 分针的颜色
+      hands.minute.linewidth = 10 // 分针的线宽
+      hands.minute.cap = 'round' // 分针的端点样式
+
+      // 设置秒针的端点样式
+      hands.second.cap = 'round'
+
+      // 将时针、分针和秒针添加到Two.js场景中
+      two.add(hands.hour, hands.minute, hands.second)
+
+      // 绑定resize和update事件
+      two.bind('resize', resize).bind('update', update)
+
+      // 调用resize函数初始化时钟的位置
+      resize()
+
+      // resize函数，用于调整时钟的位置
+      function resize() {
+        two.scene.position.set(two.width / 2, two.height / 2)
+      }
+
+      // update函数，用于更新时钟的指针位置
+      function update(frameCount, timeDelta) {
+        // 获取当前时间
+        const date = new Date()
+        // 计算时针、分针和秒针的角度
+        const hr = (TWO_PI * date.getHours()) / 12
+        const mr = (TWO_PI * date.getMinutes()) / 60
+        const sr = (TWO_PI * date.getSeconds()) / 60
+        // 更新时针、分针和秒针的旋转角度
+        hands.hour.rotation += (hr - hands.hour.rotation) * drag
+        hands.minute.rotation += (mr - hands.minute.rotation) * drag
+        hands.second.rotation += (sr - hands.second.rotation) * drag
+      }
+    </script>
+  </body>
+</html>
