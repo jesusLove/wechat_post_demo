@@ -97,3 +97,6 @@ export default defineConfig({
   },
 })
 ```
+上传成功示例：
+
+![](./images/%E4%B8%8A%E4%BC%A0%E6%88%90%E5%8A%9F.png)
