@@ -1,0 +1,16 @@
+.details-container {
+  min-width: 160px;
+  padding: 12px;
+}
+h2,p {
+  margin: 0;
+}
+.details-container > h2 {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.details-container > p {
+  font-size: 12px;
+  margin-bottom: 6px;
+}
