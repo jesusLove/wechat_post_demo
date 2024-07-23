@@ -1,6 +1,7 @@
 嗨，大家好，欢迎来到猿镇，我是镇长，lee。
 
-今天，和大家分享一款神奇的 `JavaScript`  开源高级表格组件 —— `vxe-table`。
+今天，和大家分享一款神奇的 `JavaScript` 开源高级表格组件 —— `vxe-table`。它不仅支持基础的表格操作如增删改查，还提供高级特性，如虚拟树、列拖拽、数据校验等。它的易用性、丰富的API和自定义能力，使其成为处理复杂数据展示和交互的理想选择。
+
 
 [Github Star: 7.4k](https://github.com/x-extends/vxe-table)
 
@@ -99,6 +100,9 @@ VxeTable.setLanguage('zh-CN')
 ```
 
 ### 扩展功能
+
+如何开启虚拟渲染？
+
 
 
 ### 总结
