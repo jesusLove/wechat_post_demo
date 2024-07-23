@@ -2,6 +2,8 @@
 
 今天，和大家分享一款神奇的 `JavaScript`  开源高级表格组件 —— `vxe-table`。
 
+[Github Star: 7.4k](https://github.com/x-extends/vxe-table)
+
 ### vxe-table 是什么？
 `vxe-table` 是一款基于 Vue 的高级表格组件，它提供了丰富的功能，包括增删改查、虚拟滚动、懒加载、快捷菜单、数据校验、树形结构、打印导出、表单渲染、数据分页、虚拟列表、模态窗口、自定义模板、渲染器等。`vxe-table` 旨在满足复杂表格的需求，适用于企业级应用开发，特别适合处理大量数据的情况。
 
@@ -30,6 +32,7 @@ yarn add vxe-table@next
 #### 入门示例
 
 Vite 创建 Vue3 的项目，然后引入 vxe-table 实现表格功能。
+
 ```bash
 # 创建项目，选择 Vue + JavaScript
 npm create vite vxe-table-basic-demo
@@ -84,6 +87,16 @@ const tableData = ref(mackData)
 ```
 **国际化配置** 
 
+vxe-table 通过简单的配置可实现国际化配置。
+
+```js
+import zhCN from 'vxe-table/lib/locale/lang/zh-CN'
+// 添加语言
+VxeTable.setI18n('zh-CN', zhCN)
+
+// 切换语言
+VxeTable.setLanguage('zh-CN')
+```
 
 ### 扩展功能
 
