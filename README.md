@@ -2,6 +2,10 @@
 ![](./images/wechat.jpg)
 > 更多内容请关注公众号 “猿镇”
 # 历史文章
+- [Frappe Gantt，一款神奇的 JavaScript 开源甘特图库？](https://mp.weixin.qq.com/s/aRlWUu3XLuzRPQf0ZWg3_g)
+- [Filepond.js，一款神奇的 JavaScript 开源文件上传库?](https://mp.weixin.qq.com/s/gCVa1QLUqfiIhCuJ2mR4kw)
+- [Lexical，一款神奇的 JavaScript 开源富文本编辑器。](https://mp.weixin.qq.com/s/ymJewx_9kn38N-eshYGUgQ)
+- [Two.js，一款神奇的 JavaScript 二维动画库？](https://mp.weixin.qq.com/s/JIkp0A2XDexkRPiYFwjmKQ)
 - [Vivus.js，一款轻量级 JavaScript 动画库？前端大神的隐藏技巧，让你的SVG动画效果提升300%！](https://mp.weixin.qq.com/s/PxZDU3AAT5N1ao4HeWZOXw)
 - [Granim.js，一款小巧而强大的交互式渐变动画 JavaScript 库？](https://mp.weixin.qq.com/s/UEQeZOaNlphAYsSlH-XuNw)
 - [AniJS - 一款超简单的、超实用的 JavaScript 动画库？不用写 JS、只需一行命令即可实现动画。](https://mp.weixin.qq.com/s/Ib4YRyAxcDZ8z3o2FAZ1UA)
