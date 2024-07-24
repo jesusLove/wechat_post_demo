@@ -5,11 +5,12 @@
 
 [Github Star: 7.4k](https://github.com/x-extends/vxe-table)
 
-### vxe-table 是什么？
-`vxe-table` 是一款基于 Vue 的高级表格组件，它提供了丰富的功能，包括增删改查、虚拟滚动、懒加载、快捷菜单、数据校验、树形结构、打印导出、表单渲染、数据分页、虚拟列表、模态窗口、自定义模板、渲染器等。`vxe-table` 旨在满足复杂表格的需求，适用于企业级应用开发，特别适合处理大量数据的情况。
+### 1、vxe-table 是什么？
+`vxe-table` 是一款基于 Vue 的高级表格组件，它提供了丰富的功能，包括**增删改查、虚拟滚动、懒加载、快捷菜单、数据校验、树形结构、打印导出、表单渲染、数据分页、虚拟列表、模态窗口、自定义模板、渲染器**等。`vxe-table` 旨在满足复杂表格的需求，适用于企业级应用开发，特别适合处理大量数据的情况。
 
-### 功能特性
-- **虚拟滚动**：提高表格性能，只渲染可见区域内的数据。
+### 2、功能特性
+
+- **虚拟滚动**：提高大数据量表格渲染性能，只渲染可见区域内的数据，当用户滚动时，不在可视区域的数据不被渲染，减少 DOM 操作和渲染时间。
 - **树形结构**：支持表格数据的树形展示，方便处理层级关系复杂的数据。
 - **数据校验**：内置数据校验功能，可以自定义校验规则。
 - **打印导出**：支持数据的打印和导出功能，可以将表格内容导出为 Excel、CSV 等格式。
@@ -17,7 +18,7 @@
 - **键盘导航**：支持全键盘操作，提升用户体验。
 - **模态窗口**：内置模态对话框功能，简化表单操作流程。
 
-### 快速开始
+### 3、快速开始
 
 **版本介绍**：`v3.0 `基于 `Vue2.6+` ，支持现代浏览器并保留兼容 IE11。`v4.0` 基于 `Vue3.2+`，只支持现代浏览器，不支持 IE。 注意`v4.7` 对组件进行重构拆分，分为 `vxe-table` 和 `vxe-ui `将支持可视化组件。本文示例，采用 `v4.0` 基于 `Vue3.2+` 的版本演示，由于 `v4.7` 进行破坏性更新直接选择最新版的，其他版本的使用方法，请自行[参考文档](https://vxetable.cn/v3.8/#/table/start/install)。
 
@@ -47,11 +48,9 @@ vxe-table 支持按需引入，需要借助插件 `vite-plugin-lazy-import` 实�
 // 纯表格
 import VxeTable from 'vxe-table'
 import 'vxe-table/lib/style.css'
-
 // 可选 UI
 import VxeUI from 'vxe-pc-ui'
 import 'vxe-pc-ui/lib/style.css' 
-
 createApp(App)
 .use(VxeUI)
 .use(VxeTable)
@@ -59,8 +58,6 @@ createApp(App)
 ```
 
 现在，可以在Vue 模板中使用 `<vxe-table>` 组件了，下面实现一个简单的表格
-
-插图
 
 ```html
 // basicTable.vue
@@ -82,10 +79,26 @@ createApp(App)
 
 <script setup>
 import { ref } from 'vue'
-import mackData from './mack'
-const tableData = ref(mackData)
+const tableData = ref([
+  {
+    Mon: '语文',
+    Tue: '数学',
+    Wed: '英语',
+    Thu: '语文',
+    Fri: '英语',
+  },
+  {
+    Mon: '语文',
+    Tue: '数学',
+    Wed: '英语',
+    Thu: '语文',
+    Fri: '英语',
+  },
+])
 </script>
 ```
+示例代码请公众号回复 "demo" 获取
+
 **国际化配置** 
 
 vxe-table 通过简单的配置可实现国际化配置。
@@ -98,16 +111,9 @@ VxeTable.setI18n('zh-CN', zhCN)
 // 切换语言
 VxeTable.setLanguage('zh-CN')
 ```
+### 4、总结
 
-### 扩展功能
-
-如何开启虚拟渲染？
-
-
-
-### 总结
-
-
+本文我们探讨了 vxe-table 的核心特性、应用场景，通过入门示例了解他的使用方法。vxe-table 以其强大的功能和灵活性，提供了一个高效、可定制的 Vue 表格解决方案。处理大数据量的虚拟滚动，还是实现复杂的数据交互，vxe-table 都能满足需求。它丰富的 API 和组件选项，使得从基础到高级功能的实现都变得简单。
 
 祝好！
 
