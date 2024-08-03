@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timesheet.js 示例</title>
+    <link rel="stylesheet" href="./libs/timesheet.js/dist/timesheet.min.css" />
+    <style>
+      #timesheet {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="timesheet"></div>
+    </div>
+    <script src="./libs/timesheet.js/dist/timesheet.min.js"></script>
+    <script>
+      const timesheet = new Timesheet('timesheet', 2018, 2020, [
+        ['2018', '2018', '加入XYZ公司，担任前端开发者', 'default'],
+        ['2019', '06/2019', '完成ABC项目，提升用户界面交互性', 'sit'],
+        ['2020', '09/2020', '晋升为高级前端开发者', 'dolor'],
+      ])
+    </script>
+  </body>
+</html>

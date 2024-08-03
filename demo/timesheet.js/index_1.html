@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timesheet.js 示例</title>
+    <link rel="stylesheet" href="./libs/timesheet.js/dist/timesheet.min.css" />
+    <style>
+      #timesheet {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="timesheet"></div>
+    </div>
+    <script src="./libs/timesheet.js/dist/timesheet.min.js"></script>
+    <script>
+      const timesheet = new Timesheet('timesheet', 2000, 2020, [
+        ['09/2000', '07/2006', '某某小学', 'default'],
+        ['09/2006', '07/2009', '某某初级中学', 'ipsum'],
+        ['09/2009', '07/2012', '某某高级中学', 'dolor'],
+        ['09/2012', '07/2016', '清华大学', 'lorem'],
+      ])
+    </script>
+  </body>
+</html>
