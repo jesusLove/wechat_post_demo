@@ -5,21 +5,18 @@ const sound = new Howl({
   // 强制使用HTML5音频，以便能够流式传输音频（对于大文件是更好的选择）
   html5: true,
   // 当音频开始播放时触发的回调函数
-  onplay: function() {
-  },
+  onplay: () => {},
   // 当音频加载完成时触发的回调函数
-  onload: function() {
-  },
+  onload: () => {},
   // 当音频播放结束时触发的回调函数
-  onend: function() {
-  },
+  onend: () => {},
   // 当音频暂停时触发的回调函数
-  onpause: function() {
-  },
+  onpause: () => {},
   // 当音频停止时触发的回调函数
-  onstop: function() {
-  },
+  onstop: () => {},
   // 当音频跳转到新位置时触发的回调函数
-  onseek: function() {
-  }
+  onseek: () => {}
 });
+
+// 通过 on 方法监听事件
+sound.on('play', () => {})
