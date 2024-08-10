@@ -3,19 +3,30 @@
 <template>
   <div>
     <div class="wrapper">
-      <font-awesome-icon icon="fa-solid fa-address-book" size="2xs" />
-      <font-awesome-icon icon="fa-solid fa-address-book" size="sm"/>
-      <font-awesome-icon icon="fa-solid fa-address-book" />
-      <font-awesome-icon icon="fa-solid fa-address-book" size="lg"/>
-      <font-awesome-icon icon="fa-solid fa-address-book" size="xl"/>
+      <font-awesome-icon icon="fa-solid fa-address-book" size="1x" />
+      <font-awesome-icon icon="fa-solid fa-address-book" size="2x"/>
+      <font-awesome-icon icon="fa-solid fa-address-book" size="3x"/>
       <font-awesome-icon icon="fa-solid fa-address-book" size="4x"/>
+      <font-awesome-icon icon="fa-solid fa-address-book" size="5x"/>
       <font-awesome-icon icon="fa-solid fa-address-book" size="6x"/>
+      <font-awesome-icon icon="fa-solid fa-address-book" size="7x"/>
     </div>
-    <font-awesome-icon icon="fa-regular fa-address-book" />
+    <div class="wrapper">
+      <font-awesome-icon icon="fa-solid fa-camera" size="1x" />
+      <font-awesome-icon icon="fa-solid fa-camera" size="2x"/>
+      <font-awesome-icon icon="fa-solid fa-camera" size="3x"/>
+      <font-awesome-icon icon="fa-solid fa-camera" size="4x"/>
+      <font-awesome-icon icon="fa-solid fa-camera" size="5x"/>
+      <font-awesome-icon icon="fa-solid fa-camera" size="6x"/>
+      <font-awesome-icon icon="fa-solid fa-camera" size="7x"/>
+    </div>
   </div>
 </template>
 <style scoped>
 .wrapper {
   font-size: 16px;
+  svg {
+    margin-right: 5px;
+  }
 }
 </style>
