@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masonry DEMO</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="grid">
+    <div class="grid-item"></div>
+    <div class="grid-item grid-item--width2 grid-item--height2"></div>
+    <div class="grid-item grid-item--height3"></div>
+    <div class="grid-item grid-item--height2"></div>
+    <div class="grid-item grid-item--width3"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item grid-item--height2"></div>
+    <div class="grid-item grid-item--width2 grid-item--height3"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item grid-item--height2"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item grid-item--width2 grid-item--height2"></div>
+    <div class="grid-item grid-item--width2"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item grid-item--height2"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item grid-item--height3"></div>
+    <div class="grid-item grid-item--height2"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item grid-item--height2"></div>
+  </div>
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+  <script>
+    const masonry = new Masonry('.grid', {
+      itemSelector: '.grid-item',
+      // columnWidth: 200,
+      gutter: 0,
+      horizontalOrder: true
+    })
+  </script>
+</body>
+</html>

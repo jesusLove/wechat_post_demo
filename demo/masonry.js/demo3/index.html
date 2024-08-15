@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>Masonry - imagesLoaded progress, vanilla JS</h1>
+    <div class="grid">
+      <div class="grid-sizer"></div>
+      <div class="grid-item">
+        <img
+          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg"
+        />
+      </div>
+      <div class="grid-item">
+        <img
+          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg"
+        />
+      </div>
+      <div class="grid-item">
+        <img
+          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg"
+        />
+      </div>
+      <div class="grid-item">
+        <img
+          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg"
+        />
+      </div>
+      <div class="grid-item">
+        <img
+          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg"
+        />
+      </div>
+      <div class="grid-item">
+        <img
+          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg"
+        />
+      </div>
+      <div class="grid-item">
+        <img
+          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/contrail.jpg"
+        />
+      </div>
+      <div class="grid-item">
+        <img
+          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/golden-hour.jpg"
+        />
+      </div>
+      <div class="grid-item">
+        <img
+          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/flight-formation.jpg"
+        />
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>
+    <script>
+      var grid = document.querySelector('.grid')
+      var msnry = new Masonry(grid, {
+        itemSelector: '.grid-item',
+        columnWidth: '.grid-sizer',
+        percentPosition: true,
+      })
+      imagesLoaded(grid).on('progress', function () {
+        // layout Masonry after each image loads
+        msnry.layout()
+      })
+    </script>
+  </body>
+</html>
