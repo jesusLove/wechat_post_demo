@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hammer.js 示例</title>
+    <style>
+      body {
+        background-color: beige;
+      }
+      .wrapper {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .square {
+        width: 60px;
+        height: 60px;
+        background-color: #00b0ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        margin-bottom: 40px;
+        transition: transform 300ms ease-out;
+      }
+      .expand {
+        transform: scale(1.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="wrapper">
+        <div class="square" id="tap">轻击</div>
+        <div class="square" id="doubleTap">双击</div>
+        <div class="square" id="press">长按</div>
+        <div class="square" id="swipe">滑动</div>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"
+      integrity="sha512-qRj8N7fxOHxPkKjnQ9EJgLJ8Ng1OK7seBn1uk8wkqaXpa7OA13LO6txQ7+ajZonyc9Ts4K/ugXljevkFTUGBcw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
