@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 引入样式和库文件 -->
+    <link rel="stylesheet" href="../libs/katex.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="equation">$ x=\frac{-b\pm\sqrt{b^2-4ac}}{2a} $</div>
+    </div>
+    <script src="../libs/katex.js"></script>
+    <script src="../libs/auto-render.js"></script>
+    <script type="text/javascript" defer>
+      document.addEventListener('DOMContentLoaded', function () {
+        renderMathInElement(document.body, {
+          // 自定义选项
+          // • auto-render 指定解析格式
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '\\[', right: '\\]', display: true },
+          ],
+          // • 不抛出异样，而是渲染公式源码
+          throwOnError: false,
+        })
+      })
+    </script>
+  </body>
+</html>
