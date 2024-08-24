@@ -11,7 +11,7 @@ const ratio = (variant) => {
 // 根据图片对象生成tile的HTML字符串
 const tile = (obj) => {
   return `
-  <figure class="js-item column ${obj.variant || ''}">
+  <figure class="js-item column ${obj.variant || ''}" data-title="${obj.alt}">
       <div class="aspect aspect--${ratio(obj.variant)}">
           <div class="aspect__inner">
               <img src="${obj.src}" alt="${obj.alt}">
@@ -22,9 +22,19 @@ const tile = (obj) => {
 // 获取页面元素并设置其内部HTML为生成的Shuffle布局
 document.querySelector('#page').innerHTML = `
   <div class="container">
-    <h1>
-        <a href="https://vestride.github.io/Shuffle/" target="_blank" rel="noopener">Shuffle</a>模板
-    </h1>
+    <div>
+      <h1>
+          <a href="https://vestride.github.io/Shuffle/" target="_blank" rel="noopener">Shuffle</a>模板
+      </h1>
+      <div>
+        <select class="sort-options">
+          <option value="">默认排序</option>
+          <option value="title">标题排序</option>
+          <option value="reverse">反转排序结果</option>
+          <option value="randomize">随机排序</option>
+        </select>
+      </div>
+    </div>
     <div class="js-grid my-shuffle">${images
       .map((item) => tile(item))
       .join('')}</div>
@@ -36,3 +46,31 @@ const shuffle = new Shuffle(document.querySelector('.my-shuffle'), {
   sizer: '.js-sizer',
   buffer: 1,
 })
+
+
+const addSorting = () => {
+  document.querySelector('.sort-options').addEventListener('change', (event) => {
+    const value = event.target.value;
+    function sortByTitle(element) {
+      return element.dataset.title.toLowerCase();
+    }
+  
+    let options = {};
+    if (value === 'title') {
+      options = {
+        by: sortByTitle,
+      };
+    }  else if (value === 'reverse') {
+      options = {
+        reverse: true
+      }
+    } else if (value === 'randomize') {
+      options = {
+        randomize: true
+      }
+    }
+  
+    shuffle.sort(options);
+  });
+}
+addSorting()
