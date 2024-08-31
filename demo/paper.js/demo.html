@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paper.js DEMO</title>
+  </head>
+  <body>
+    <canvas id="myCanvas" resize></canvas>
+    <script src="./dist/paper-full.js"></script>
+    <script>
+      paper.setup('myCanvas') // 初始化 Paper.js 并关联 canvas 元素
+
+      var rect = new paper.Path.Rectangle(
+        new paper.Point(50, 50),
+        new paper.Size(100, 100)
+      )
+      rect.fillColor = 'red' // 设置填充颜色
+
+      // 为矩形添加拖动功能
+      rect.onMouseDown = function (event) {
+        this.dragging = true
+      }
+
+      paper.view.onMouseMove = function (event) {
+        if (rect.dragging) {
+          rect.position = event.point // 更新矩形的位置
+        }
+      }
+
+      paper.view.onMouseUp = function (event) {
+        rect.dragging = false
+      }
+    </script>
+  </body>
+</html>
