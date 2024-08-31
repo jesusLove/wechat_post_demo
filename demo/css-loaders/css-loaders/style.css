@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #0dc5c1;
+  font-size: 16px;
+  padding: 40px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.load {
+  width: 200px;
+  height: 200px;
+  border: 1px solid white;
+}
