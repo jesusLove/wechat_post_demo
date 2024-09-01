@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Reveal.js 入门示例</title>
+    <link rel="stylesheet" href="./reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="./reveal.js/dist/theme/black.css" />
+    <!-- 代码高亮主题 -->
+    <link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>欢迎</h1>
+          <h3>Reveal.js 入门示例</h3>
+          <p>点击下一个查看更多</p>
+        </section>
+        <section>
+          <h2>幻灯片 2</h2>
+          <p>这是一个具有基本格式的幻灯片。</p>
+        </section>
+        <section>
+          <h2>交互性示例</h2>
+          <p>
+            点击这个列表项：
+            <a href="#" class="fragment highlight-red" data-fragment-index="1"
+              >查看效果</a
+            >
+          </p>
+        </section>
+        <section>
+          <h2>代码示例</h2>
+          <pre><code data-trim data-noescape>
+              console.log('Hello, Reveal.js!');
+            </code></pre>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            ```js [1|2|3|4|5|6-10]
+            Reveal.initialize({
+              controls: true, // 显示控制箭头
+              progress: true, // 显示进度条
+              center: true,  // 幻灯片垂直居中
+              transition: 'slide', // 过渡风格 none/fade/slide/convex/concave/zoom
+              plugins: [  // 内置插件
+                RevealHighlight, 
+                RevealMarkdown, 
+                RevealNotes, 
+                RevealZoom],
+            })
+            ```
+          </textarea>
+        </section>
+      </div>
+    </div>
+
+    <script src="./reveal.js/dist/reveal.js"></script>
+    <script src="./reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="./reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="./reveal.js/plugin/zoom/zoom.js"></script>
+    <script src="./reveal.js/plugin/notes/notes.js"></script>
+    <script>
+      Reveal.initialize({
+        controls: true, // 显示控制箭头
+        progress: true, // 显示进度条
+        center: true,  // 幻灯片垂直居中
+        transition: 'slide', // 过渡风格 none/fade/slide/convex/concave/zoom
+        plugins: [  // 内置插件
+          RevealHighlight, 
+          RevealMarkdown, 
+          RevealNotes, 
+          RevealZoom],
+      })
+    </script>
+  </body>
+</html>
