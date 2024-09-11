@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>文字识别应用</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f0f0f0;
+      }
+      h1 {
+        color: #333;
+        text-align: center;
+      }
+      .img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 20px auto;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+      }
+      #btn {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      #btn:hover {
+        background-color: #45a049;
+      }
+      #result {
+        margin-top: 20px;
+        padding: 15px;
+        font-size: 18px;
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>文字识别应用</h1>
+    <img src="./images/image.jpg" alt="待识别图片" class="img" />
+    <button id="btn">识别文字</button>
+    <div id="result"></div>
+    <!-- v5 -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <script>
+      
+      const { createWorker } = Tesseract;
+      const btn = document.querySelector('#btn')
+      btn.addEventListener('click', async () => {
+        const image = document.querySelector('img')
+        
+        const worker = await  createWorker('chi_sim')
+        const result = await worker.recognize(image)
+        console.log(result.data.text)
+        document.querySelector('#result').innerHTML = result.data.text
+        worker.terminate()
+      })
+    </script>
+  </body>
+</html>
