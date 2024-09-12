@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortable.js Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .sortable-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sortable-item {
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #ecf0f1;
+            border-radius: 4px;
+            cursor: move;
+            transition: all 0.3s ease;
+        }
+        .sortable-item:hover {
+            background-color: #e0e6e8;
+            transform: translateY(-2px);
+        }
+        .sortable-item.sortable-ghost {
+            opacity: 0.4;
+        }
+        .sortable-item.sortable-chosen {
+            background-color: #3498db;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sortable List</h1>
+        <ul id="sortable-list" class="sortable-list">
+            <li class="sortable-item">Drag me 1</li>
+            <li class="sortable-item">Drag me 2</li>
+            <li class="sortable-item">Drag me 3</li>
+            <li class="sortable-item">Drag me 4</li>
+            <li class="sortable-item">Drag me 5</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var el = document.getElementById('sortable-list');
+            var sortable = Sortable.create(el, {
+                animation: 150,
+                ghostClass: 'sortable-ghost',
+                chosenClass: 'sortable-chosen'
+            });
+        });
+    </script>
+</body>
+</html>
