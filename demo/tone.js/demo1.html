@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tone.js 优雅钢琴</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .piano-container {
+            background-color: #2c3e50;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        #piano {
+            display: flex;
+            justify-content: center;
+            background-color: #34495e;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .key {
+            width: 40px;
+            height: 150px;
+            border: 1px solid #2c3e50;
+            margin: 1px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            cursor: pointer;
+            background-color: #ecf0f1;
+            border-radius: 0 0 5px 5px;
+            transition: all 0.1s ease;
+        }
+        .key.black {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            height: 90px;
+            width: 25px;
+            margin-left: -13px;
+            margin-right: -13px;
+            z-index: 1;
+        }
+        .key:active, .key.active {
+            background-color: #3498db;
+            transform: translateY(2px);
+        }
+        .key.black:active, .key.black.active {
+            background-color: #2980b9;
+        }
+        .key span {
+            font-size: 12px;
+            padding-bottom: 5px;
+            pointer-events: none;
+        }
+        h1 {
+            text-align: center;
+            color: #ecf0f1;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 600px) {
+            .key {
+                width: 30px;
+                height: 120px;
+            }
+            .key.black {
+                height: 70px;
+                width: 20px;
+                margin-left: -10px;
+                margin-right: -10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="piano-container">
+        <h1>优雅钢琴</h1>
+        <div id="piano"></div>
+    </div>
+
+    <script>
+        // 创建一个 PolySynth，允许同时播放多个音符
+        const synth = new Tone.PolySynth(Tone.Synth).toDestination();
+
+        // 定义音符
+        const notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+        const octave = 4;
+        const blackKeys = ['C#', 'D#', 'F#', 'G#', 'A#'];
+
+        // 创建钢琴键
+        const pianoElement = document.getElementById('piano');
+        notes.forEach((note, index) => {
+            const key = document.createElement('div');
+            key.className = 'key';
+            key.innerHTML = `<span>${note}${octave}</span>`;
+            key.dataset.note = note + octave;
+            pianoElement.appendChild(key);
+
+            // 添加黑键
+            if (index < 5 && blackKeys.includes(notes[index] + '#')) {
+                const blackKey = document.createElement('div');
+                blackKey.className = 'key black';
+                blackKey.innerHTML = `<span>${notes[index]}#${octave}</span>`;
+                blackKey.dataset.note = notes[index] + '#' + octave;
+                pianoElement.appendChild(blackKey);
+            }
+        });
+
+        // 添加事件监听器
+        function playNote(note) {
+            synth.triggerAttack(note);
+            document.querySelector(`[data-note="${note}"]`).classList.add('active');
+        }
+
+        function stopNote(note) {
+            synth.triggerRelease(note);
+            document.querySelector(`[data-note="${note}"]`).classList.remove('active');
+        }
+
+        pianoElement.addEventListener('mousedown', async (e) => {
+            if (e.target.classList.contains('key')) {
+                await Tone.start();
+                playNote(e.target.dataset.note);
+            }
+        });
+
+        pianoElement.addEventListener('mouseup', (e) => {
+            if (e.target.classList.contains('key')) {
+                stopNote(e.target.dataset.note);
+            }
+        });
+
+        pianoElement.addEventListener('mouseleave', (e) => {
+            if (e.target.classList.contains('key')) {
+                stopNote(e.target.dataset.note);
+            }
+        });
+
+        // 添加触摸事件支持
+        pianoElement.addEventListener('touchstart', async (e) => {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const key = document.elementFromPoint(touch.clientX, touch.clientY);
+            if (key && key.classList.contains('key')) {
+                await Tone.start();
+                playNote(key.dataset.note);
+            }
+        }, { passive: false });
+
+        pianoElement.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            const touch = e.changedTouches[0];
+            const key = document.elementFromPoint(touch.clientX, touch.clientY);
+            if (key && key.classList.contains('key')) {
+                stopNote(key.dataset.note);
+            }
+        }, { passive: false });
+    </script>
+</body>
+</html>
