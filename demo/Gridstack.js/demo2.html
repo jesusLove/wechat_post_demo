@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gridstack.js 进阶示例</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/7.2.3/gridstack.min.css" />
+    <style>
+      body {
+        background-color: #f0f4f8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .grid-container {
+        width: 80%;
+        max-width: 1200px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
+      .grid-stack-item-content {
+        text-align: center;
+        background-color: #e9ecef;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color: #495057;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-stack"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/7.2.3/gridstack-all.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var options = {
+          column: 6, // 设置网格列数
+          cellHeight: 80, // 设置单元格高度
+          verticalMargin: 10, // 设置垂直边距
+          animate: true, // 启用动画
+        }
+
+        var grid = GridStack.init(options)
+
+        // 添加网格项
+        grid.addWidget({ x: 0, y: 0, width: 2, height: 2, content: '项目 1' })
+        grid.addWidget({ x: 2, y: 0, width: 2, height: 1, content: '项目 2' })
+        grid.addWidget({ x: 4, y: 0, width: 2, height: 1, content: '项目 3' })
+
+        // 绑定动态事件
+        grid.on('added', function (event, items) {
+          console.log('添加了新项目:', items)
+        })
+
+        grid.on('change', function (event, items) {
+          console.log('项目发生变化:', items)
+        })
+
+        grid.on('removed', function (event, items) {
+          console.log('移除了项目:', items)
+        })
+      })
+    </script>
+  </body>
+</html>
