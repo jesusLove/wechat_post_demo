@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popmotion Demo</title>
+  <script src="https://cdn.jsdelivr.net/npm/popmotion@11.0.3/dist/popmotion.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+    #output {
+      font-size: 72px;
+      color: #333;
+      background-color: #fff;
+      padding: 20px 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div id="output"></div>
+
+  <script>
+    const { animate } = popmotion;
+    const output = document.getElementById('output');
+
+    animate({
+      from: 0,
+      to: 100,
+      duration: 2000,
+      onUpdate: (latest) => {
+        console.log(latest);
+        output.textContent = Math.round(latest);
+      }
+    });
+  </script>
+</body>
+</html>

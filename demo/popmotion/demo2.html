@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popmotion 动画示例</title>
+  <script src="https://cdn.jsdelivr.net/npm/popmotion@11.0.3/dist/popmotion.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f0f4f8;
+      color: #333;
+    }
+    .container {
+      max-width: 1200px;
+      width: 1000px;
+      padding: 10px;
+      background-color: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 10px;
+      font-size: 2.5em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .animations-wrapper {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    .animation-group {
+      flex: 1 1 240px;
+      /* max-width: 400px; */
+      background-color: #f8f9fa;
+      border-radius: 15px;
+      padding: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    .animation-group:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      color: #3498db;
+      margin-bottom: 10px;
+      font-size: 1.8em;
+      text-align: center;
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background-color: #3498db;
+      margin: 10px auto 0;
+    }
+    .box {
+      width: 80px;
+      height: 80px;
+      background-color: #e74c3c;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .box-container {
+      height: 100px;
+      border: 2px dashed #bdc3c7;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      margin-top: 20px;
+      background-color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Popmotion 动画示例</h1>
+    <div class="animations-wrapper">
+      <div class="animation-group">
+        <h2>关键帧动画</h2>
+        <div class="box-container">
+          <div class="box" id="keyframes"></div>
+        </div>
+      </div>
+      <div class="animation-group">
+        <h2>弹簧动画</h2>
+        <div class="box-container">
+          <div class="box" id="spring"></div>
+        </div>
+      </div>
+      <div class="animation-group">
+        <h2>衰减动画</h2>
+        <div class="box-container">
+          <div class="box" id="decay"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 关键帧动画
+    popmotion.animate({
+      // 起始状态：x 坐标为 0，旋转角度为 0
+      from: { x: 0, rotate: 0 },
+      // 结束状态：x 坐标为 300，旋转角度为 180 度
+      to: { x: 300, rotate: 180 },
+      // 动画持续时间为 2 秒
+      duration: 2000,
+      // 无限重复动画
+      repeat: Infinity,
+      // 反向重复：到达终点后反向运动
+      repeatType: 'reverse',
+      // 使用内置的 easeInOut 缓动函数
+      ease: popmotion.easeInOut,
+      // 每帧更新时调用此函数
+      onUpdate: (latest) => {
+        // 更新 DOM 元素的变换属性
+        document.getElementById('keyframes').style.transform = `translateX(${latest.x}px) rotate(${latest.rotate}deg)`;
+      }
+    });
+
+    // 弹簧动画
+    popmotion.animate({
+      // 起始位置为 0
+      from: 0,
+      // 目标位置为 300
+      to: 300,
+      // 使用弹簧类型的动画
+      type: 'spring',
+      // 弹簧刚度，值越大，弹簧越"硬"
+      stiffness: 100,
+      // 阻尼，值越大，弹簧停止的越快
+      damping: 10,
+      // 每帧更新时调用此函数
+      onUpdate: (latest) => {
+        // 更新 DOM 元素的 X 轴位置
+        document.getElementById('spring').style.transform = `translateX(${latest}px)`;
+      }
+    });
+
+    // 衰减动画
+    // 初始速度
+    let velocity = 1000;
+    const runDecay = () => {
+      popmotion.animate({
+        // 起始位置为 0
+        from: 0,
+        // 使用衰减类型的动画
+        type: 'decay',
+        // 初始速度
+        velocity: velocity,
+        // 影响初始加速度，值越大，初始加速度越大
+        power: 0.8,
+        // 影响衰减速率，值越大，衰减越慢
+        timeConstant: 350,
+        // 每帧更新时调用此函数
+        onUpdate: (latest) => {
+          // 更新 DOM 元素的 X 轴位置
+          document.getElementById('decay').style.transform = `translateX(${latest}px)`;
+        },
+        // 动画完成时调用此函数
+        onComplete: () => {
+          // 反转速度并减小其绝对值
+          velocity *= -0.9;
+          // 如果速度仍然足够大，则重新开始动画
+          if (Math.abs(velocity) > 100) {
+            runDecay();
+          }
+        }
+      });
+    };
+    // 开始衰减动画
+    runDecay();
+  </script>
+</body>
+</html>
