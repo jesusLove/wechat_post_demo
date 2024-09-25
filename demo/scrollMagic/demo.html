@@ -72,18 +72,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.min.js"></script>
 
     <script>
-        // Initialize ScrollMagic controller
+        // 初始化 ScrollMagic 控制器
         var controller = new ScrollMagic.Controller();
 
-        // Create a scene
+        // 创建一个场景
         var scene = new ScrollMagic.Scene({
-            triggerElement: ".pin", // Element that triggers the animation
-            triggerHook: 0.5, // Trigger at the middle of the viewport
-            duration: "100%" // Pin the element for the duration of the viewport height
+            triggerElement: ".pin", // 触发动画的元素
+            triggerHook: 0.5, // 在视口中间触发
+            duration: "100%" // 固定元素的持续时间为视口高度
         })
-        .setPin(".pin") // Pin the element
-        .addIndicators() // Add indicators (requires debug.addIndicators.js)
-        .addTo(controller); // Add scene to controller
+        .setPin(".pin") // 固定元素
+        .addIndicators() // 添加指示器（需要 debug.addIndicators.js）
+        .addTo(controller); // 将场景添加到控制器
     </script>
 </body>
 </html>
