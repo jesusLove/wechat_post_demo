@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sound.js Demo</title>
+  <!-- 引入 CreateJS 库 -->
+  <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+</head>
+<body>
+  <h1>Sound.js Demo</h1>
+  <button id="playButton">播放音频</button>
+
+  <script>
+    // 初始化音频
+    function init() {
+      // 注册音频文件
+      createjs.Sound.registerSound("path/to/your/audio.mp3", "mySound");
+      
+      // 为按钮添加点击事件
+      document.getElementById("playButton").addEventListener("click", playSound);
+    }
+
+    // 播放音频
+    function playSound() {
+      createjs.Sound.play("mySound");
+    }
+
+    // 页面加载完成后初始化
+    window.addEventListener("load", init);
+  </script>
+</body>
+</html>
